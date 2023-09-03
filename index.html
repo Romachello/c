@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Клиент БАЗА</title>
+   <style>
+      body {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
+      .form {
+         background-color: antiquewhite;
+         display: flex;
+         flex-direction: column;
+      }
+
+      .form__parts {
+         width: 100%;
+         display: flex;
+         flex-wrap: wrap;
+         margin-bottom: 10px;
+      }
+
+      .form__part1 {
+         width: 32%;
+         display: flex;
+         flex-wrap: wrap;
+         flex-direction: column;
+         margin-right: 1%;
+      }
+
+      .form__part2 {
+         width: 32%;
+         display: flex;
+         flex-wrap: wrap;
+         flex-direction: column;
+         margin-right: 1%;
+      }
+      .form__part3 {
+         width: 32%;
+         display: flex;
+         flex-wrap: wrap;
+         flex-direction: column;
+      }
+      .form__item {
+         padding: 3px;
+      }
+
+      .opis {
+         resize: none;
+         width: 95%;
+         height: 40px;
+      }
+
+      .suenarii {
+         resize: none;
+         height: 40px;
+      }
+
+      .o_chem {
+         resize: none;
+         height: 40px;
+      }
+
+      .form__zvonok {
+         display: flex;
+         flex-direction: column;
+      }
+
+      .result-btn {}
+   </style>
+</head>
+
+<body>
+   <form class="form" method="post" action="connectMYSQL.php">
+      <div class="form__parts">
+         <div class="form__part1">
+            <div>
+               <label for="rayon">Район: <input name="rayon" id="rayon" type="text" placeholder="Район" class="form__item"></label><br><br>
+               <label for="phone">Телефон:<input name="tele" id="phone" type="tel" placeholder="+7XXXXXXXXXX"
+                     class="form__item"></label>
+            </div><br>
+
+            <label for="komnat">Количество Комнат:
+               <div id="komnat" class="form__item" style="border: 3px solid black;">
+                  1 комн<input type="radio" name="rooms" class="form__item" value="1">
+                  2 комн<input type="radio" name="rooms" class="form__item" value="2">
+                  3 комн<input type="radio" name="rooms" class="form__item" value="3">
+                  4 комн. и более<input type="radio" name="rooms" class="form__item" value="4+">
+               </div>
+            </label>
+            <br>
+            <label for="phone">Адрес квартиры:<input name="adres" type="text" placeholder="Адрес квартиры"
+                  class="form__item width"></label><br>
+
+            <div>
+               Цена продавца:<input name="produena" type="text" placeholder="Цена продавца (руб)" class="form__item"><br><br>
+               Срок:<input name="srok" type="text" placeholder="Срок" class="form__item">
+            </div><br>
+
+         </div>
+         <div class="form__part2">
+
+
+            <div>
+               Проект?<input name="proekt" type="text" placeholder="Проект / Вероятность Успеха" class="form__item"><br><br>
+               Договор
+               <select  name="dogovorr">
+                  <option value="yes">Есть договор</option>
+                  <option value="no">Отказ сотрудничества</option>
+               </select><br><br>
+
+               Дата заключения договора<br><br><input name="Date-dogovor" type="date" class="form__item">
+            </div><br>
+            Коммисионные<br>
+            <select name="ysl-sotr" class="form__item">
+               <option value="100%">100 комиссионных</option>
+               <option value="5%">5% ком</option>
+            </select>
+            
+           
+            <label for="opis">Описание:<textarea id="opis" name="opis" type="text" placeholder="Описание" class="opis"></textarea></label>
+
+         </div>
+         <div class="form__part3">
+            О чем поговорили?
+            <textarea type="text" name="ochem" placeholder="О чем поговорили?" class="o_chem"></textarea>
+            Сценарий след. контекста
+            <textarea name="suenar" type="text" placeholder="Сценарий след. контекста" class="suenarii"></textarea>
+            <div class="form__zvonok">
+               <label for="date1">Дата 1 контр. звонка</label><input id="date1" name="numberCall-one" type="date"
+                  class="form__item">
+               <label for="date2">Дата 2 контр. звонка</label><input id="date2" name="numberCall-two" type="date"
+                  class="form__item">
+               <label for="date3">Дата 3 контр. звонка</label><input id="date3" name="numberCall-three" type="date"
+                  class="form__item">
+            </div>
+         </div>
+      </div>
+
+      <input class="result-btn" type="submit" value="Добавить в БД">
+
+   </form>
+   <script src="script.js"></script>
+</body>
+
+</html>
